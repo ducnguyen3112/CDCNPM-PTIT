@@ -1,18 +1,27 @@
 # ĐỒ ÁN CHUYÊN ĐỀ CÔNG NGHỆ PHẦN MỀM - PTITHCM - ĐẶT LỆNH CHỨNG KHOÁN(ĐỀ SỐ 2)
 
+
 GIỚI THIỆU
+
+
 -) Là một bài tập cũng như đồ án cuối kì cho môn CDCNPM giúp các sinh viên
 hiểu rõ hơn về ứng dụng cursor trong sql server trong việc truy vấn và xử lí
 dữ liệu.
  
-Các phần mềm thư viện dùng trong đồ án:
+ 
+CÁC PHẦN MỀM THƯ VIỆN DÙNG TRONG ĐỒ ÁN:
+
 
 -) Môi trường, lưu trữ và xử lí dữ liệu:
+	
 	+) Eclipse IDE for Enterprise Java and Web Developers(LATEST)
 	+) Spring boot famework (ver 2.6.4)
 	+) JDK 16
 	+) Microsoft sql server 2019
+
+
 -) Hiện thị trên website:
+	
 	+) HTML5
 	+) CSS3
 	+) Thymeleaf
@@ -21,7 +30,7 @@ Các phần mềm thư viện dùng trong đồ án:
 	+) Datatable	
 
 ## HÌNH ẢNH DEMO ĐỒ ÁN
-![Website đặt lệnh chứng khoán](\cdcnpm\readmeImg\Screenshot.png)
+![Website đặt lệnh chứng khoán](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/Screenshot%20.png)
 
 ### HƯỚNG DẪN CÀI ĐẶT VÀ CHẠY
 I) Chuẩn bị database
@@ -213,20 +222,22 @@ THOAT:
 GO
 ```
 > Tất cả các lệnh trên đã có trong file Scripts.sql
+
+
 II) Hướng dẫn import project vào eclipse
  1. Click file >Import
- ![](\cdcnpm\readmeImg\import1.png)
+ ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import1.png)
  2. trong cửa sổ import chọn Existing Maven projects
-  ![](\cdcnpm\readmeImg\import2.png)
+  ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import2.png)
 3. Click Browse... chọn thư mục mình lưu project
- ![](\cdcnpm\readmeImg\import3.png)
+ ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import3.png)
    click finish
 
 III) Cấu hình để kết nối CSDL trong Eclipse
 1. Mở file config theo đường dẫn "/src/main/resources/application.properties"
 và chỉnh sửa.
 
-![Đường dẫn tới application.properties](\cdcnpm\readmeImg\urlconfig.png)
+![Đường dẫn tới application.properties](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/urlconfig.png)
 
 >spring.datasource.url= jdbc:sqlserver://localhost:[SERVER PORT(default:1433)];databaseName=[TÊN DATABASE(CHUNGKHOAN)]
 spring.datasource.username= [Tên đăng nhập]
@@ -238,7 +249,7 @@ spring.main.allow-circular-references: true
 server.port=[WEBSITE PORT(default:8080)]
 
 
-![File application.properties](\cdcnpm\readmeImg\application_properties.png)
+![File application.properties](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/application_properties.png)
 
 
 
@@ -251,7 +262,7 @@ Thao tác hướng dẫn chạy project
 Tìm đến file "CdcnpmApplication.java" theo đường dẫn src/main/java > com.datlenhchungkhoan.cdcnpm 
 click chuột phải chọn Run as > Java Application
 	
-![Hướng dẫn chạy project](\cdcnpm\readmeImg\run.png)
+![Hướng dẫn chạy project](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/run.png)
 
 ####KẾT
  Đây chỉ là một demo nhỏ mang tính chất tham khảo có thể sẽ có một vài sai sót.
