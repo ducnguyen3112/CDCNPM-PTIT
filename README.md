@@ -1,7 +1,7 @@
 # ĐỒ ÁN CHUYÊN ĐỀ CÔNG NGHỆ PHẦN MỀM - PTITHCM - ĐẶT LỆNH CHỨNG KHOÁN(ĐỀ SỐ 2)
 
 
-GIỚI THIỆU
+__GIỚI THIỆU__
 
 
 -) Là một bài tập cũng như đồ án cuối kì cho môn CDCNPM giúp các sinh viên
@@ -9,7 +9,7 @@ hiểu rõ hơn về ứng dụng cursor trong sql server trong việc truy vấ
 dữ liệu.
  
  
-CÁC PHẦN MỀM THƯ VIỆN DÙNG TRONG ĐỒ ÁN:
+__CÁC PHẦN MỀM THƯ VIỆN DÙNG TRONG ĐỒ ÁN:__
 
 
 -) Môi trường, lưu trữ và xử lí dữ liệu:
@@ -33,7 +33,7 @@ CÁC PHẦN MỀM THƯ VIỆN DÙNG TRONG ĐỒ ÁN:
 ![Website đặt lệnh chứng khoán](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/Screenshot%20.png)
 
 ### HƯỚNG DẪN CÀI ĐẶT VÀ CHẠY
-I) Chuẩn bị database
+__I) CHUẨN BỊ DATABASE__
 
 1. Tạo database [CHUNGKHOAN] trong MSSQL Server
 ```sql
@@ -224,14 +224,27 @@ GO
 > Tất cả các lệnh trên đã có trong file Scripts.sql
 
 
-II) Hướng dẫn import project vào eclipse
- 1. Click file >Import
+__II) HƯỚNG DẪN IMPORT PROJECT VÀO ECLIPSE__
+
+1. Click file >Import
+ 
+ 
  ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import1.png)
+
+
  2. trong cửa sổ import chọn Existing Maven projects
-  ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import2.png)
+ 
+ 
+ ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import2.png)
+
+
 3. Click Browse... chọn thư mục mình lưu project
- ![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import3.png)
-   click finish
+
+
+![](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/import3.png)
+ 
+ 
+ click finish
 
 III) Cấu hình để kết nối CSDL trong Eclipse
 1. Mở file config theo đường dẫn "/src/main/resources/application.properties"
@@ -239,14 +252,14 @@ và chỉnh sửa.
 
 ![Đường dẫn tới application.properties](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/urlconfig.png)
 
->spring.datasource.url= jdbc:sqlserver://localhost:[SERVER PORT(default:1433)];databaseName=[TÊN DATABASE(CHUNGKHOAN)]
-spring.datasource.username= [Tên đăng nhập]
-spring.datasource.password= [Mật khẩu]
-spring.jpa.hibernate.ddl-auto=none
-logging.level.org.hibernate.SQL=DEBUG
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
-spring.main.allow-circular-references: true
-server.port=[WEBSITE PORT(default:8080)]
+>spring.datasource.url= jdbc:sqlserver://localhost:[SERVER PORT(default:1433)];databaseName=[TÊN DATABASE(CHUNGKHOAN)]  
+spring.datasource.username= [Tên đăng nhập]  
+spring.datasource.password= [Mật khẩu]  
+spring.jpa.hibernate.ddl-auto=none  
+logging.level.org.hibernate.SQL=DEBUG  
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE  
+spring.main.allow-circular-references: true  
+server.port=[WEBSITE PORT(default:8080)]  
 
 
 ![File application.properties](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/application_properties.png)
@@ -255,7 +268,7 @@ server.port=[WEBSITE PORT(default:8080)]
 
 Mọi thao tác chuẩn bị đã hoàn tất.
 
-IV) Chạy project
+__IV) CHẠY PROJECT__
 
 Thao tác hướng dẫn chạy project
 
@@ -264,10 +277,14 @@ click chuột phải chọn Run as > Java Application
 	
 ![Hướng dẫn chạy project](https://github.com/DucNguyen3112/CDCNPM-PTIT/blob/master/readmeImg/run.png)
 
-####KẾT
- Đây chỉ là một demo nhỏ mang tính chất tham khảo có thể sẽ có một vài sai sót.
+#### KẾT
  
- =================== CHÚC CÁC BẠN THI ĐƯỢC ĐIỂM CAO ====================
+ 
+ Đây chỉ là một demo nhỏ mang tính chất tham khảo có thể sẽ có một vài sai sót. Các bạn nên tìm hiểu kĩ trước khi sử dụng.
+ 
+ Chúc các bạn có kết quả thi tốt.
+ 
+                                                       # THE END
 
 
 
