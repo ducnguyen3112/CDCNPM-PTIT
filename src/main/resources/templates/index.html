@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	th:crossorigin="anonymous">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>Đặt lệnh chứng khoán</title>
+<style type="text/css">
+.text-center {
+	text-align: center;
+}
+.alert{
+	margin-top: 4px;
+}
+.text-right {
+	text-align: right;
+}
+.container{
+	    height: 740px;
+}
+.my-custom-scrollbar {
+position: relative;
+height: 330px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+.my-custom-scrollbar {
+    
+    height: auto;
+    
+}
+thead tr:nth-child(1) th{ position: sticky;top: 0;z-index: 10;}
+
+</style>
+<script type="text/javascript">
+	function numberWithCommas(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    $(document).ready( function () {
+        $('#dataTable').DataTable({ "sDom": 't'});
+    } );
+    </script>
+</head>
+
+<body>
+	<div class="container">
+		<div style="width: 70%; margin: 50px auto 0 auto;"
+			class="border border-1 rounded p-3 mb-2 bg-light text-dark shadow p-3 mb-5 bg-body rounded">
+			<form style="margin: 20px;" class="row g-3" th:action="@{/}"
+				method="post" th:object="${lenh}">
+				<div class="col-md-6">
+					<label class="form-label">Mua/bán</label> <select
+						class="form-select" th:field="*{loaiGD}">
+						<option selected value="M">Mua</option>
+						<option value="B">Bán</option>
+					</select>
+				</div>
+				<div class="col-md-6">
+					<label class="form-label">Lệnh</label> <!-- <input type="text"
+						class="form-control" th:value="LO" th:field="*{loaiLenh}" > -->
+						<span class="form-control">LO</span>
+				</div>
+				<div class="col-md-2">
+					<label class="form-label">Mã cổ phiếu</label> <input type="text" id="maCoPhieu"
+						class="form-control" th:field="*{maCoPhieu}"  th:required="required">
+						<div class="alert alert-warning" th:if="${#fields.hasErrors('maCoPhieu')}" th:errors="*{maCoPhieu}"></div>
+				</div>
+
+
+				
+				<div class="col-md-4">
+					<label class="form-label">Số lượng</label> <input type="text" id="soLuong"
+						 class="form-control"
+						th:field="*{soLuong}" th:required="required">
+						<div class="alert alert-warning" th:if="${#fields.hasErrors('soLuong')}" th:errors="*{soLuong}"></div>
+				</div>
+				<div class="col-md-6">
+					<label class="form-label">Giá</label> <input type="text" id="giaDat"  
+						class="form-control" th:field="*{giaDat}" th:required="required" >
+						<div class="alert alert-warning" th:if="${#fields.hasErrors('giaDat')}" th:errors="*{giaDat}"></div>
+				</div>
+
+				<div class="col-12 d-flex justify-content-center  ">
+					<button type="submit" class="btn btn-warning "
+						style="margin-right: 20px; background-color: 0xFFC20E;">Đặt lệnh</button>
+					<button type="reset" class="btn btn-light"
+						style="margin-left: 20px;">Làm lại</button>
+				</div>
+			</form>
+		</div>
+		<div class="table-wrapper-scroll-y my-custom-scrollbar shadow  " style=" max-height: 360px">
+			<table class="table table-bordered table-striped mb-0  " id="dataTable" >
+				<thead class="table-dark" >
+					<tr>
+						<th style="width: 110px; " scope="col">Mã cổ phiếu</th>
+						<th style="width: 250px;" class="text-center" scope="col">Ngày
+							đặt</th>
+						<th class="text-center" scope="col">Mua/bán (M/B)</th>
+						<th scope="col">loại lệnh</th>
+						<th scope="col">Số lượng</th>
+						<th scope="col">Giá đặt (VND)</th>
+						<th class="text-right" scope="col">Trạng thái</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<tr th:each="item : ${list}">
+						<td><span th:text="${item.maCoPhieu}"></span></td>
+						<td style="width: 250px;" class="text-center"><span
+							th:text="${item.ngayDat}"></span></td>
+						<td class="text-center"><span th:text="${item.loaiGD}"></span></td>
+						<td><span th:text="${item.loaiLenh}"></span></td>
+						<td><span th:text="${item.soLuong}"></span></td>
+						<td><span
+							th:text="${#numbers.formatDecimal(item.giaDat, 0, 'COMMA', 0, 'POINT')}"></span></td>
+						<td class="text-right"><span th:text="${item.trangThaiLenh}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
